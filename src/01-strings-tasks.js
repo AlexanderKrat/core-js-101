@@ -35,7 +35,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-  return value.length
+  return value.length;
 }
 
 /**
@@ -52,7 +52,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}!`
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -66,8 +66,8 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  let arrSpaces = value.split(' ');
-  return `${arrSpaces[1]} ${arrSpaces[2].slice(0,arrSpaces[2].indexOf('!'))}`;
+  const arrSpaces = value.split(' ');
+  return `${arrSpaces[1]} ${arrSpaces[2].slice(0, arrSpaces[2].indexOf('!'))}`;
 }
 
 
@@ -82,7 +82,7 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-  return value[0]
+  return value[0];
 }
 
 /**
@@ -97,7 +97,7 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
- return value.trim();
+  return value.trim();
 }
 
 /**
@@ -111,8 +111,8 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'A', 5  => 'AAAAA'
  *   'cat', 3 => 'catcatcat'
  */
-function repeatString(value,count) {
- return value.repeat(count)
+function repeatString(value, count) {
+  return value.repeat(count);
 }
 
 /**
@@ -128,7 +128,7 @@ function repeatString(value,count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-  return str.replace(value, "")
+  return str.replace(value, '');
 }
 
 /**
@@ -143,13 +143,12 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
- if(str.includes("<") || str.includes(">")){
-  let result = str.replace('<','').replace('>','');
-  return result
- }
- else{
-  return `<${str}>`
- }
+  if (str.includes('<') || str.includes('>')) {
+    const result = str.replace('<', '').replace('>', '');
+    return result;
+  }
+
+  return `<${str}>`;
 }
 
 
@@ -183,7 +182,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-return str.split(";")
+  return str.split(';');
 }
 
 /**
@@ -211,7 +210,7 @@ return str.split(";")
  */
 function getRectangleString(width, height) {
   const fillRow = (length, str) => Array(length - 2).fill(str).join('');
-  return `┌${fillRow(width, '─')}┐\n` + `│${fillRow(width, ' ')}│\n`.repeat(height - 2) + `└${fillRow(width, '─')}┘\n`;
+  return `┌${fillRow(width, '─')}┐\n${`│${fillRow(width, ' ')}│\n`.repeat(height - 2)}└${fillRow(width, '─')}┘\n`;
 }
 
 
@@ -232,9 +231,9 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  const usualLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  const cipheredLetters = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
-  return str.replace(/[a-z]/gi, letter => cipheredLetters[usualLetters.indexOf(letter)]);
+  const usualLetters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const cipheredLetters = 'nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM';
+  return str.replace(/[a-z]/gi, (letter) => cipheredLetters[usualLetters.indexOf(letter)]);
 }
 
 /**
@@ -251,15 +250,10 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  if (typeof value === 'string'){
-    return true
+  if (typeof value === 'string' || value instanceof String) {
+    return true;
   }
-  else if(value == 'test'){
-    return true
-  }
-  else{
-    return false
-  }
+  return false;
 }
 
 
@@ -296,7 +290,7 @@ function getCardId(value) {
     'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
     'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
     'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠',
-  ].indexOf(value)
+  ].indexOf(value);
 }
 
 
