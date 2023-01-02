@@ -54,9 +54,10 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  const arr = [value1, value2];
-  const average = arr.reduce((a, b) => a + b, 0) / arr.length;
-  return average;
+  const { length } = [value1, value2];
+  const valueOne = value1 / length;
+  const valueTwo = value2 / length;
+  return valueOne + valueTwo;
 }
 
 /**
